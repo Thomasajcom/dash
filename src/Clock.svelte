@@ -1,0 +1,57 @@
+<script lang="ts">
+    import { format } from "date-fns";
+    import { nb } from "date-fns/locale";
+
+    let date = new Date();
+
+    setInterval(() => date = new Date(), 1000);
+</script>
+
+<div class="container">
+    <div class="clock-container">
+        <div class="clock">
+            <h2>{ format(date, "eeee", { locale: nb }) }</h2>
+            <h1>{ format(date, "HH:mm") }</h1>
+            <h3>{ format(date, "d. MMMM yyyy", { locale: nb }) }</h3>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        background-color: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clock-container {
+        display: flex;
+    }
+
+    .clock {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .clock h1 {
+        font-size: 5rem;
+        margin: 0;
+        font-weight: 100;
+    }
+
+    .clock h2 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 300;
+    }
+
+    .clock h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 100;
+    }
+</style>
