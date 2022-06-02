@@ -5,6 +5,7 @@
     <div class="logo-container">
         <img src="img/itera.png" alt="Logo" />
         <h1>Fredrikstad</h1>
+        <h2>Things go better with Petter</h2>
     </div>
 </div>
 
@@ -34,6 +35,16 @@
         font-size: 2rem;
         font-family: "Feeling Passionate";
         margin: 0;
-        margin-top: 1rem;
+        margin-top: 2rem;
+        line-height: 0;
+    }
+
+    .logo-container h2 {
+        font-size: 0.8rem;
+        font-family: "IBM Plex Sans";
+        margin: 0;
+        margin-top: 3rem;
+        font-weight: 300;
+        text-transform: uppercase;
     }
 </style>
