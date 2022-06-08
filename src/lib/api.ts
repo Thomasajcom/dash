@@ -1,6 +1,6 @@
 import axios from "axios";
 import { formatISO } from "date-fns";
-import type { DayAtWork, DaySummary } from "./models";
+import type { DayAtWork, DaySummary, DayAtWorkType } from "./models";
 
 
 export async function getDayAtWorkItems(day: Date): Promise<DayAtWork[]> {
@@ -9,5 +9,5 @@ export async function getDayAtWorkItems(day: Date): Promise<DayAtWork[]> {
       .get<DaySummary>(`https://presence-itera-fredrikstad.azurewebsites.net/api/daySummary?date=${date}`);
   
   
-    return res.data.attendees
+    return res.data.attendees.filter(attendee => attendee.type !== "EMPTY")
   }
