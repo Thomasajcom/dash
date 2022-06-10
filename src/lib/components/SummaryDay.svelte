@@ -10,7 +10,7 @@
 </script>
 
 <div class="container" class:loading={$query.isLoading}>
-  <h2>På kontoret i dag</h2>
+  <h2>{`${$query?.data && $query?.data.length === 0 ? "Ingen " : ""}På kontoret i dag`}</h2>
   <div class="day">
     <div class="attendees">
       {#each $query?.data ?? [] as attendee}
