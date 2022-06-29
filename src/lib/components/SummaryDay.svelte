@@ -9,24 +9,29 @@
   $: query = day && useQuery(["daySummary", day], () => getDayAtWorkItems(day));
 </script>
 
-<div class="container" class:loading={$query.isLoading}>
-  <h2>{`${$query?.data && $query?.data.length === 0 ? "Ingen " : ""}På kontoret i dag`}</h2>
-  <div class="day">
-    <div class="attendees">
-      {#each $query?.data ?? [] as attendee}
-        <Avatar {attendee} />
-      {/each}
+<div class="tile">
+  <div class="container" class:loading={$query.isLoading}>
+    <h2>
+      {`${
+        $query?.data && $query?.data.length === 0 ? "Ingen " : ""
+      }På kontoret i dag`}
+    </h2>
+    <div class="day">
+      <div class="attendees">
+        {#each $query?.data ?? [] as attendee}
+          <Avatar {attendee} />
+        {/each}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
   .container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    /* grid-column: span 2; */
     flex-direction: column;
-    padding: 2rem;
-    background-color: #222;
     align-items: center;
     justify-content: center;
   }

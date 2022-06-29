@@ -7,7 +7,7 @@
     setInterval(() => date = new Date(), 1000);
 </script>
 
-<div class="container">
+<div class="tile">
     <div class="clock-container">
         <div class="clock">
             <h2>{ format(date, "eeee", { locale: nb }) }</h2>
@@ -18,15 +18,13 @@
 </div>
 
 <style>
-    .container {
-        background-color: #222;
+    .clock-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .clock-container {
-        display: flex;
     }
 
     .clock {

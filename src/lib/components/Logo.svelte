@@ -1,25 +1,17 @@
 <script lang="ts">
 </script>
 
-<div class="container">
+<div class="tile">
     <div class="logo-container">
         <img src="img/itera.png" alt="Logo" />
         <h1>Fredrikstad</h1>
-        <h2>Things go better with Petter</h2>
     </div>
 </div>
 
 <style>
-	.container {
-        display: flex;
-		/* grid-column: span 2; */
-        padding: 2rem;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: #222;
-	}
-
     .logo-container {
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -35,8 +27,8 @@
         font-size: 2rem;
         font-family: "Feeling Passionate";
         margin: 0;
-        margin-top: 2rem;
-        line-height: 0;
+        margin-top: 1.5rem;
+        line-height: 1;
     }
 
     .logo-container h2 {
