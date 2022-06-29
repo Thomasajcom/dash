@@ -6,11 +6,11 @@
 
   let today = new Date();
 
-  setInterval(() => today = new Date(), 1000 * 60);
+  setInterval(() => today = new Date(), 1000 * 61);
 
   $: query = useQuery("teamEvents", () => getTeamEvents(today), {
-    cacheTime: 1000 * 60 * 10,
-    staleTime: 1000 * 60 * 10
+    cacheTime: 1000 * 60 * 2,
+    staleTime: 1000 * 60 * 2
   });
 </script>
 
@@ -48,11 +48,11 @@
   }
 
   .event {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1;
   }
 
