@@ -4,9 +4,14 @@
 
   import Avatar from "./Avatar.svelte";
 
-  let day = new Date();
+  let today = new Date();
 
-  $: query = day && useQuery(["daySummary", day], () => getDayAtWorkItems(day));
+  setInterval(() => today = new Date(), 1000 * 61);
+
+  $: query = today && useQuery("daySummary", () => getDayAtWorkItems(today), {
+    cacheTime: 1000 * 60 * 2,
+    staleTime: 1000 * 60 * 2
+  });
 </script>
 
 <div class="tile">

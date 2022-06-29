@@ -6,7 +6,6 @@
   
   import TeamEvents from "./lib/tiles/team-events/Main.svelte";
 
-
   const queryClient = new QueryClient();
 </script>
 
