@@ -2,7 +2,6 @@
     import {
         QueryClientProvider,
         QueryClient,
-        useQuery,
     } from "@sveltestack/svelte-query";
     import Content from "./Content.svelte";
   
@@ -17,7 +16,7 @@
   
 <style>
     .tile {
-        grid-column: span 2;
+        grid-column: span 1;
     }
 </style>
   

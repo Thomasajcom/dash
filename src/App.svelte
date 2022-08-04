@@ -13,18 +13,9 @@
 <main>
   <Logo />
   <Clock />
+  <Plants />
   <QueryClientProvider client={queryClient}>
     <SummaryDay />
   </QueryClientProvider>
   <TeamEvents/>
-  <Plants />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
 </main>

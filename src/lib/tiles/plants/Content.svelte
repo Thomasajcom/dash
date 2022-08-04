@@ -2,23 +2,38 @@
     import { format } from "date-fns";
     import { nb } from "date-fns/locale";
 
-    let date = new Date();
-    let colorLevel = "green";
-    // let imgHeight = "200px";
-    // let gradient1 = "0%";
-    // let gradient2 = "100%";
+    // Green: #37E17B
+    // Yellow: #FFDD00
+    // Red: #FF4B33
 
-    setInterval(() => date = new Date(), 1000);
+    let date = new Date('August 3, 2022');
+    let color = "#37E17B";
+    let gradientLevel = 0;
+    
+    function waterPlants() {
+        date = new Date();
+        color = "#37E17B";
+        gradientLevel = 0;
+    }
+
+    setInterval(() => gradientLevel += 1, 1000) // Every hour
+
+    $: {
+        gradientLevel >= 66 ? color = "#FF4B33" : "";
+        gradientLevel >= 33 ? color = "#FFDD00" : "";
+    }
+
 </script>
   
 <div class="container">
     <h1>Kontorplantene</h1>
     <div class="plant-wrapper">
         <div class="plant" 
-            style="background-image: linear-gradient(grey 50%, red 50%, red), url('img/plant.svg');"/>
+            style="background-image: linear-gradient(to bottom, grey {gradientLevel}%, {color} {gradientLevel}%, {color}), url('img/plant.svg');"/>
         <article>
             <p>Plantene ble sist vannet { format(date, "d. MMMM ", { locale: nb }) }</p>
-            <p><span class="slogan">Make a difference</span> for kontorplantene</p>
+            <p><span class="slogan">Make a difference</span> for kontorplantene.</p>
+            <button class="watering-button" on:click={waterPlants}>Vann plantene</button>
         </article>
     </div>
 </div>
@@ -40,8 +55,6 @@
 
     .slogan {
         font-family: "Feeling Passionate";
-        font-style: italic;
-        font-weight: normal;
         color: red;
         margin-right: 8px;
     }
@@ -56,6 +69,22 @@
         width: 200px;
         height: 200px;
         margin: 1rem 0;
+    }
+
+    .watering-button {
+        color: white;
+        background-color: red;
+        border-radius: 4px;
+        border-style: none;
+        padding: 16px;
+        font-size: 1rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .watering-button:hover {
+        background-color: green;
+        cursor: pointer;
     }
 </style>
   
