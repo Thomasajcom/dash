@@ -5,6 +5,7 @@
   import { QueryClient, QueryClientProvider } from "@sveltestack/svelte-query";
   
   import TeamEvents from "./lib/tiles/team-events/Main.svelte";
+  import Plants from "./lib/tiles/plants/Main.svelte";
 
   const queryClient = new QueryClient();
 </script>
@@ -16,7 +17,7 @@
     <SummaryDay />
   </QueryClientProvider>
   <TeamEvents/>
-  <div />
+  <Plants />
   <div />
   <div />
   <div />
