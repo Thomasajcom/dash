@@ -2,10 +2,6 @@
     import { format } from "date-fns";
     import { nb } from "date-fns/locale";
 
-    // Green: #37E17B
-    // Yellow: #FFDD00
-    // Red: #FF4B33
-
     let date = new Date('August 3, 2022');
     let color = "#37E17B";
     let gradientLevel = 100;
@@ -31,8 +27,8 @@
         <div class="plant" 
             style="background-image: linear-gradient(to bottom, grey {gradientLevel}%, {color} {gradientLevel}%, {color}), url('img/plant.svg');"/>
         <article>
-            <p>Plantene ble sist vannet { format(date, "d. MMMM ", { locale: nb }) }</p>
             <p><span class="slogan">Make a difference</span> for kontorplantene.</p>
+            <p>Plantene ble sist vannet {format(date, "eeee d. MMMM", { locale: nb })}.</p>
             <button class="watering-button" on:click={waterPlants}>Vann plantene</button>
         </article>
     </div>
@@ -63,6 +59,10 @@
         display: flex;
     }
 
+    .plant-wrapper p {
+        font-weight: 200;
+    }
+
     .plant {
         -webkit-mask: url(img/plant.svg) no-repeat center;
         mask: url(img/plant.svg) no-repeat center;
@@ -76,10 +76,11 @@
         background-color: #FF4B33;
         border-radius: 4px;
         border-style: none;
-        padding: 16px;
         font-size: 1rem;
         font-weight: 300;
         text-transform: uppercase;
+        padding: 16px;
+        margin-top: 1rem;
     }
 
     .watering-button:hover {

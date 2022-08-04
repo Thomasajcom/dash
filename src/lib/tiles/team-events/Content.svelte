@@ -15,6 +15,7 @@
 </script>
 
 <div class="container">
+  <h1>Arrangementer</h1>
   {#if !$query.isLoading && $query.data}
     <div class="events">
       {#each $query.data as event}
@@ -26,7 +27,7 @@
               {format(event.start, "eeee HH:mm", { locale: nb })}
             {/if}
           </h2>
-          <h1>{event.name}</h1>
+          <p>{event.name}</p>
         </div>
       {/each}
     </div>
@@ -51,9 +52,17 @@
     padding-bottom: 0.5rem;
   }
 
-  h1 {
+  p {
     font-size: 1rem;
     line-height: 1;
+  }
+
+  h1 {
+        font-size: 1rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 2rem;
   }
 
   h2 {
