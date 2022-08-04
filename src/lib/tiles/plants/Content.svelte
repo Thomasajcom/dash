@@ -8,7 +8,7 @@
 
     let date = new Date('August 3, 2022');
     let color = "#37E17B";
-    let gradientLevel = 0;
+    let gradientLevel = 100;
     
     function waterPlants() {
         date = new Date();
@@ -16,7 +16,7 @@
         gradientLevel = 0;
     }
 
-    setInterval(() => gradientLevel += 1, 1000) // Every hour
+    setInterval(() => gradientLevel += 0.583, 1000*60*60) // Every hour
 
     $: {
         gradientLevel >= 66 ? color = "#FF4B33" : "";
@@ -55,7 +55,7 @@
 
     .slogan {
         font-family: "Feeling Passionate";
-        color: red;
+        color: #FF4B33;
         margin-right: 8px;
     }
   
@@ -73,7 +73,7 @@
 
     .watering-button {
         color: white;
-        background-color: red;
+        background-color: #FF4B33;
         border-radius: 4px;
         border-style: none;
         padding: 16px;
@@ -83,7 +83,7 @@
     }
 
     .watering-button:hover {
-        background-color: green;
+        background-color: #37E17B;
         cursor: pointer;
     }
 </style>
