@@ -3,8 +3,9 @@
   import Clock from "./lib/components/Clock.svelte";
   import SummaryDay from "./lib/components/SummaryDay.svelte";
   import { QueryClient, QueryClientProvider } from "@sveltestack/svelte-query";
-  
+
   import TeamEvents from "./lib/tiles/team-events/Main.svelte";
+  import Fantasy from "./lib/tiles/fantasy/Main.svelte";
 
   const queryClient = new QueryClient();
 </script>
@@ -15,8 +16,8 @@
   <QueryClientProvider client={queryClient}>
     <SummaryDay />
   </QueryClientProvider>
-  <TeamEvents/>
-  <div />
+  <TeamEvents />
+  <Fantasy />
   <div />
   <div />
   <div />
