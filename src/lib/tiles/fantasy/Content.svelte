@@ -19,14 +19,6 @@
   {#if !$query.isLoading && $query.data}
     <div class="teams">
       <ul>
-        {#if $query?.data["new_entries"]?.results.length > 0}
-          {#each $query?.data["new_entries"]?.results ?? [] as entry}
-            <li>
-              {entry["entry_name"]} ({`${entry["player_first_name"]}`}
-              {`${entry["player_last_name"]}`})
-            </li>
-          {/each}
-        {/if}
         {#if $query?.data.standings?.results.length > 0}
           {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry}
             <li>
@@ -35,6 +27,17 @@
           {/each}
         {/if}
       </ul>
+      {#if $query?.data["new_entries"]?.results.length > 0}
+        <h3>Nye spillere</h3>
+        <ul>
+          {#each $query?.data["new_entries"]?.results ?? [] as entry}
+            <li>
+              {entry["entry_name"]} ({`${entry["player_first_name"]}`}
+              {`${entry["player_last_name"]}`})
+            </li>
+          {/each}
+        </ul>
+      {/if}
     </div>
   {:else}
     Loading...
@@ -72,5 +75,11 @@
     text-transform: uppercase;
     margin: 0;
     font-weight: 300;
+  }
+
+  h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 1;
   }
 </style>
