@@ -28,7 +28,7 @@
 
 <div
   class="avatar-container"
-  title={attendee.userId}
+  title={attendee.user.name}
   class:selected={!attendee.user.profilePicture && isSelected(attendee) && !isEmpty(attendee)}
   class:first-half={isFirstHalf(attendee)}
   class:last-half={isLastHalf(attendee)}
