@@ -4,8 +4,15 @@ export type DayAtWork = {
     date: Date;
     type: DayAtWorkType;
     comment?: string;
+    user: User
 };
 export type DaySummary = {
     date: Date,
     attendees: DayAtWork[]
+}
+
+export type User = {
+    id: string,
+    name: string,
+    profilePicture?: string
 }
