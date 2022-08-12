@@ -14,7 +14,7 @@
   });
 </script>
 
-<div class="tile">
+<div class="tile" style="grid-column: span 2;">
   <div class="container" class:loading={$query.isLoading}>
     <h2>
       {`${
