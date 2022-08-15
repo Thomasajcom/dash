@@ -2,8 +2,6 @@
   import { format } from "date-fns";
   import { nb } from "date-fns/locale";
 
-  import "/img/plant.svg";
-
   let date = new Date("August 3, 2022");
   let color = "#37E17B";
   let gradientLevel = 100;
@@ -27,7 +25,7 @@
   <div class="plant-wrapper">
     <div
       class="plant"
-      style="background-image: linear-gradient(to bottom, grey {gradientLevel}%, {color} {gradientLevel}%, {color}), url('img/plant.svg');"
+      style="background-image: linear-gradient(to bottom, grey {gradientLevel}%, {color} {gradientLevel}%, {color}), url('/img/plant.svg');"
     />
     <article>
       <p><span class="slogan">Make a difference</span> for kontorplantene.</p>
