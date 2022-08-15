@@ -22,6 +22,13 @@
         {#if $query?.data.standings?.results.length > 0}
           {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry}
             <li>
+              {#if entry.rank < entry.last_rank && entry.last_rank > 0}
+                <span><i class="fa-solid fa-circle-chevron-up up" /></span>
+              {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
+                <span><i class="fa-solid fa-circle-chevron-down down" /></span>
+              {:else}
+                <span><i class="fa-solid fa-circle" /></span>
+              {/if}
               {entry.rank}. {entry["entry_name"]} ({entry["player_name"]}) - {entry.total} poeng
             </li>
           {/each}
@@ -81,5 +88,13 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     line-height: 1;
+  }
+
+  .down {
+    color: #ff4b33;
+  }
+
+  .up {
+    color: #37e17b;
   }
 </style>
