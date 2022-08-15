@@ -65,8 +65,8 @@
   }
 
   .plant {
-    -webkit-mask: url(img/plant.svg) no-repeat center;
-    mask: url(img/plant.svg) no-repeat center;
+    -webkit-mask: url(/img/plant.svg) no-repeat center;
+    mask: url(/img/plant.svg) no-repeat center;
     width: 200px;
     height: 200px;
     margin: 1rem 0;
