@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
     .clock-container {
         width: 100%;
         height: 100%;

@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<style>
+<style lang="postcss">
   .container {
     background-color: #222;
     display: flex;

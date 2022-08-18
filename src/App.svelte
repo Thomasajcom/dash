@@ -8,6 +8,8 @@
   import Plants from "./lib/tiles/plants/Main.svelte";
   import Fantasy from "./lib/tiles/fantasy/Main.svelte";
 
+  import "./App.postcss?import";
+
   const queryClient = new QueryClient();
 </script>
 

@@ -14,7 +14,7 @@
     </QueryClientProvider>
 </div>
   
-<style>
+<style lang="postcss">
     .tile {
         grid-column: span 1;
     }

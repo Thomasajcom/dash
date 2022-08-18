@@ -48,7 +48,7 @@
   {/if}
 </div>
 
-<style>
+<style lang="postcss">
   .avatar-container {
     --bg-color: #37e17b;
     --color: #ff4b33;

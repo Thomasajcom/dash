@@ -51,7 +51,7 @@
   {/if}
 </div>
 
-<style>
+<style lang="postcss">
   .container {
     height: 100%;
     display: flex;
@@ -66,7 +66,7 @@
     flex-direction: column;
     align-content: flex-start;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .teams ul {
