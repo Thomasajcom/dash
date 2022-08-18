@@ -11,6 +11,7 @@ export default {
           '@babel/preset-env', {
             targets: {
               ie: "11",
+              chrome: "40"
             },
             useBuiltIns: "usage",
             corejs: 3,
