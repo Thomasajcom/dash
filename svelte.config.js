@@ -1,4 +1,4 @@
-import sveltePreprocess from 'svelte-preprocess'
+import sveltePreprocess from "svelte-preprocess";
 
 export default {
   // Consult https://github.com/sveltejs/svelte-preprocess
@@ -8,16 +8,13 @@ export default {
     babel: {
       presets: [
         [
-          '@babel/preset-env', {
-            targets: {
-              ie: "11",
-              chrome: "40"
-            },
-            useBuiltIns: "usage",
-            corejs: 3,
-          }
+          "@babel/preset-env",
+          {
+            useBuiltIns: "entry",
+            corejs: "3.22",
+          },
         ],
       ],
     },
-  })
-}
+  }),
+};

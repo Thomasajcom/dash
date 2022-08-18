@@ -4,8 +4,6 @@ import sveltePreprocess from 'svelte-preprocess'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte({
-    preprocess: [sveltePreprocess({ postcss: true })]
-  })],
+  plugins: [svelte()],
   server: {port: 8888}
 })

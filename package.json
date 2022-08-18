@@ -21,6 +21,9 @@
     "vite-plugin-svelte-svg": "^1.0.0"
   },
   "dependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.18.10",
     "@sveltestack/svelte-query": "^1.6.0",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
