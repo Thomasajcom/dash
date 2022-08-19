@@ -17,14 +17,15 @@
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vite-plugin-svelte-svg": "^1.0.0"
+    "vite": "^3.0.9",
+    "vite-plugin-svelte-svg": "^2.0.2"
   },
   "dependencies": {
     "@babel/core": "^7.18.10",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.18.10",
     "@sveltestack/svelte-query": "^1.6.0",
+    "@vitejs/plugin-legacy": "^2.0.1",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "broadcast-channel": "^4.13.0",
@@ -32,6 +33,7 @@
     "postcss-css-variables": "^0.18.0",
     "postcss-load-config": "^4.0.1",
     "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^7.8.0"
+    "postcss-preset-env": "^7.8.0",
+    "terser": "^5.14.2"
   }
 }
