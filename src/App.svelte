@@ -9,6 +9,7 @@
   import Fantasy from "./lib/tiles/fantasy/Main.svelte";
 
   import "./App.postcss?import";
+  import Weather from "./lib/tiles/weather/Main.svelte";
 
   const queryClient = new QueryClient();
 </script>
@@ -21,5 +22,6 @@
   <QueryClientProvider client={queryClient}>
     <SummaryDay />
     <Fantasy />
+    <Weather />
   </QueryClientProvider>
 </main>
