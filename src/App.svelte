@@ -7,6 +7,7 @@
   import TeamEvents from "./lib/tiles/team-events/Main.svelte";
   import Plants from "./lib/tiles/plants/Main.svelte";
   import Fantasy from "./lib/tiles/fantasy/Main.svelte";
+  import Stock from "./lib/tiles/stock/Main.svelte";
 
   import "./App.postcss?import";
 
@@ -22,4 +23,5 @@
     <SummaryDay />
     <Fantasy />
   </QueryClientProvider>
+  <Stock />
 </main>
