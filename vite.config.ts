@@ -1,9 +1,14 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
-import sveltePreprocess from 'svelte-preprocess'
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 
-// https://vitejs.dev/config/
+import legacy from "@vitejs/plugin-legacy";
+
 export default defineConfig({
-  plugins: [svelte()],
-  server: {port: 8888}
-})
+  plugins: [
+    svelte(),
+    legacy({
+      targets: ["defaults", "not IE 11"],
+    }),
+  ],
+  server: { port: 8888 }
+});

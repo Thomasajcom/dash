@@ -15,8 +15,8 @@
   setInterval(() => (gradientLevel += 0.583), 1000 * 60 * 60); // Every hour
 
   $: {
-    gradientLevel >= 66 ? (color = "#FF4B33") : "";
-    gradientLevel >= 33 ? (color = "#FFDD00") : "";
+    gradientLevel >= 50 ? (color = "#FFDD00") : "";
+    gradientLevel >= 75 ? (color = "#FF4B33") : "";
   }
 </script>
 
@@ -28,11 +28,14 @@
       style="background-image: linear-gradient(to bottom, grey {gradientLevel}%, {color} {gradientLevel}%, {color}), url('/img/plant.svg');"
     />
     <article>
-      <p><span class="slogan">Make a difference</span> for kontorplantene.</p>
+      <p><span class="slogan" style="color: {color}">Make a difference</span> for kontorplantene.</p>
       <p>Plantene ble sist vannet {format(date, "eeee d. MMMM", { locale: nb })}.</p>
-      <button class="watering-button" on:click={waterPlants}>Vann plantene</button>
     </article>
   </div>
+
+  {#if gradientLevel >= 75}
+    <button class="watering-button" on:click={waterPlants}>Vann plantene</button>
+  {/if}
 </div>
 
 <style lang="postcss">
@@ -68,20 +71,19 @@
     -webkit-mask: url(/img/plant.svg) no-repeat center;
     mask: url(/img/plant.svg) no-repeat center;
     width: 200px;
-    height: 200px;
     margin: 1rem 0;
   }
 
   .watering-button {
+    display: block;
     color: white;
     background-color: #ff4b33;
     border-radius: 4px;
     border-style: none;
-    font-size: 1rem;
     font-weight: 300;
     text-transform: uppercase;
     padding: 16px;
-    margin-top: 1rem;
+    margin: 1rem auto;
   }
 
   .watering-button:hover {
