@@ -33,4 +33,5 @@ export type FantasyLeagueStandingsResult = {
     total: number,
     entry: number,
     entry_name: string
+    event_total:number
 }

@@ -29,7 +29,7 @@
               {:else}
                 <span><i class="fa-solid fa-circle" /></span>
               {/if}
-              {entry.rank}. {entry["entry_name"]} ({entry["player_name"]}) - {entry.total} poeng
+              {entry.rank}. {entry.entry_name} ({entry.player_name}) - {entry.total} poeng (+{entry.event_total})
             </li>
           {/each}
         {/if}
