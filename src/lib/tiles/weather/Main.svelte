@@ -13,6 +13,6 @@
 
 <style lang="postcss">
   .tile {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 </style>
