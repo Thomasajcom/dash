@@ -19,14 +19,18 @@
   <div class="weather-container">
     <div class="weather">
       {#if !$query.isLoading && $query.data}
-        {#if $query?.data.properties.timeseries[0].data}
+        {#if $query?.data.properties.timeseries && $query?.data.properties.timeseries.length > 0}
           <div class="weather-icon">
             <img
               src={`img/weather/svg/${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}.svg`}
               alt={`${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}`}
             />
           </div>
-          <h1>{$query?.data.properties.timeseries[0].data.instant.details.air_temperature}°C</h1>
+          <h1>
+            {Math.round(
+              $query?.data.properties.timeseries[2].data.instant.details.air_temperature
+            )}°C
+          </h1>
         {/if}
       {:else}
         Loading...
