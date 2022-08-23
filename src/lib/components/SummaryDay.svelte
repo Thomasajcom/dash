@@ -39,6 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
   }
 
   .day {
@@ -59,7 +60,9 @@
 
   .attendees {
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 0.75rem;
   }
 </style>

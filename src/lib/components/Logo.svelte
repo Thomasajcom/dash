@@ -19,15 +19,14 @@
   }
 
   .logo-container img {
-    width: 48px;
-    border-radius: 0.25rem;
+    width: 75px;
   }
 
   .logo-container h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: "Feeling Passionate";
     margin: 0;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     line-height: 1;
   }
 </style>

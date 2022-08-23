@@ -40,14 +40,14 @@
     }
 
     .clock h2 {
-        font-size: 1rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
         margin: 0;
         font-weight: 300;
     }
 
     .clock h3 {
-        font-size: 1rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
         margin: 0;
         font-weight: 100;

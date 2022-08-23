@@ -23,7 +23,6 @@
 </script>
 
 <div class="container">
-  <h1>Været på brygga</h1>
   <div class="weather-container">
     <div class="weather">
       {#if !$query.isLoading && $query.data}
@@ -35,6 +34,7 @@
           {:else} -->
           <div class="weather-icon">
             <img
+              class="icon"
               src={`img/weather/svg/${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}.svg`}
               alt={`${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}`}
             />
@@ -58,7 +58,9 @@
   .container {
     width: 100%;
     height: 100%;
-    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .weather-container {
@@ -66,17 +68,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
   }
 
   .weather {
     display: flex;
     align-items: center;
+    justify-items: center;
     flex-direction: column;
   }
 
-  .weather-icon {
-    width: 100px;
+  .weather-icon img {
+    width: 132px;
+    margin-bottom: -2rem;
   }
 
   /* .party-icon {
