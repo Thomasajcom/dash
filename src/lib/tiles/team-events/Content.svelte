@@ -6,7 +6,7 @@
 
   let today = new Date();
 
-  setInterval(() => today = new Date(), 1000 * 61);
+  setInterval(() => (today = new Date()), 1000 * 61);
 
   function map<TIn, TOut>(target: TIn, fn: (t: TIn) => TOut): TOut {
     return fn(target);
@@ -18,15 +18,21 @@
 
   $: query = useQuery("teamEvents", () => getTeamEvents(today), {
     cacheTime: 1000 * 60 * 2,
-    staleTime: 1000 * 60 * 2
+    staleTime: 1000 * 60 * 2,
   });
 
-  $: todaysEvents = ($query.data ?? []).filter(e => isSameDay(e.start, today));
+  $: todaysEvents = ($query.data ?? []).filter((e) => isSameDay(e.start, today));
   $: otherEvents = ($query.data ?? [])
-    .filter(e => !isSameDay(e.start, today))
-    .reduce((p, n) => ({...p, ...map(getDayId(n.start), id => ({
-      [id]: [...(p[id] ?? []), n]
-    }))}), {});
+    .filter((e) => !isSameDay(e.start, today))
+    .reduce(
+      (p, n) => ({
+        ...p,
+        ...map(getDayId(n.start), (id) => ({
+          [id]: [...(p[id] ?? []), n],
+        })),
+      }),
+      {}
+    );
 
   $: console.log(otherEvents);
 </script>
@@ -43,9 +49,8 @@
           <div class="event">
             <h2>
               {format(event.start, "HH:mm", { locale: nb })}
-              { event.name }
+              {event.name}
             </h2>
-            <p>{event.name}</p>
           </div>
         {/each}
       </div>
@@ -58,8 +63,8 @@
           {#each events as event}
             <div class="event">
               {format(event.start, "HH:mm", { locale: nb })}
-              { event.name }
-            </div>  
+              {event.name}
+            </div>
           {/each}
         {/each}
       </div>
@@ -95,10 +100,10 @@
   }
 
   h1 {
-        font-size: 1rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
   }
 
   h2 {
