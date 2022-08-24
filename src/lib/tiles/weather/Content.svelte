@@ -38,12 +38,19 @@
               src={`img/weather/svg/${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}.svg`}
               alt={`${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}`}
             />
+            <span>
+              <span
+                style="transform:rotate({$query?.data.properties.timeseries[0].data.instant.details
+                  .wind_from_direction}deg); display: inline-block;">↓</span
+              >
+              {Math.round($query?.data.properties.timeseries[0].data.instant.details.wind_speed)}m/s
+            </span>
           </div>
           <!-- {/if} -->
 
           <h1>
             {Math.round(
-              $query?.data.properties.timeseries[2].data.instant.details.air_temperature
+              $query?.data.properties.timeseries[0].data.instant.details.air_temperature
             )}°C
           </h1>
         {/if}
