@@ -33,8 +33,6 @@
       }),
       {}
     );
-
-  $: console.log(otherEvents);
 </script>
 
 <div class="container">
@@ -92,11 +90,6 @@
 
   .event {
     padding-bottom: 0.25rem;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1;
   }
 
   h1 {

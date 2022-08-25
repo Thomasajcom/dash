@@ -24,7 +24,7 @@ export async function getTeamEvents(today: Date): Promise<TeamEvent[]> {
       start: parseJSON(e.start),
       end: parseJSON(e.end),
     }))
-    .filter((e) => e.start > today && e.end < addDays(today, 7));
+    .filter((e) => e.start > new Date(today.setHours(0)) && e.end < addDays(today, 7));
 }
 
 export async function isBeerToday() {
