@@ -2,6 +2,7 @@
   import { useQuery } from "@sveltestack/svelte-query";
   import { isBeerToday } from "../team-events/api";
   import { getWeather } from "./api";
+  import type { WeatherTimeseries } from "./models";
 
   let today = new Date();
 
@@ -20,6 +21,12 @@
       cacheTime: 1000 * 60 * 300,
       staleTime: 1000 * 60 * 300,
     });
+
+  $: nextTimeseriesData = (timeseries: WeatherTimeseries[]) => {
+    return timeseries.find((series) => {
+      return new Date(series.time) > new Date();
+    }).data;
+  };
 </script>
 
 <div class="container">
@@ -35,22 +42,30 @@
           <div class="weather-icon">
             <img
               class="icon"
-              src={`img/weather/svg/${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}.svg`}
-              alt={`${$query?.data.properties.timeseries[0].data.next_1_hours.summary.symbol_code}`}
+              src={`img/weather/svg/${
+                nextTimeseriesData($query?.data.properties.timeseries).next_1_hours.summary
+                  .symbol_code
+              }.svg`}
+              alt={`${
+                nextTimeseriesData($query?.data.properties.timeseries).next_1_hours.summary
+                  .symbol_code
+              }`}
             />
             <span>
               <span
-                style="transform:rotate({$query?.data.properties.timeseries[0].data.instant.details
-                  .wind_from_direction}deg); display: inline-block;">↓</span
+                style="transform:rotate({nextTimeseriesData($query?.data.properties.timeseries)
+                  .instant.details.wind_from_direction}deg); display: inline-block;">↓</span
               >
-              {Math.round($query?.data.properties.timeseries[0].data.instant.details.wind_speed)}m/s
+              {Math.round(
+                nextTimeseriesData($query?.data.properties.timeseries).instant.details.wind_speed
+              )}m/s
             </span>
           </div>
           <!-- {/if} -->
 
           <h1>
             {Math.round(
-              $query?.data.properties.timeseries[0].data.instant.details.air_temperature
+              nextTimeseriesData($query?.data.properties.timeseries).instant.details.air_temperature
             )}°C
           </h1>
         {/if}
