@@ -32,6 +32,13 @@
                       >
                     {/if}
 
+                    {#if entry.event_total > 100}
+                      <span
+                        class="rocket animate__animated animate__lightSpeedInLeft animate__faster animate__delay-1s"
+                        ><i class="fa-solid fa-rocket" /></span
+                      >
+                    {/if}
+
                     {#if entry.rank < entry.last_rank && entry.last_rank > 0}
                       <span><i class="fa-solid fa-circle-chevron-up up" /></span>
                     {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
@@ -128,6 +135,12 @@
     top: -15px;
     left: -1px;
     color: gold;
+    font-size: 1.6rem;
+  }
+  .rocket {
+    position: absolute;
+    transform: rotate(-20deg);
+    right: 35px;
     font-size: 1.6rem;
   }
 </style>
