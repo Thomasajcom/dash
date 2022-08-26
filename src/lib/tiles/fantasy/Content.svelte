@@ -21,7 +21,11 @@
       <ul>
         {#if $query?.data.standings?.results.length > 0}
           {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry, i}
-            <li class:leader={i === 0}>
+            <li class:leader={entry.rank === 1}>
+              {#if entry.rank === 1}
+                <span class="king"><i class="fa-solid fa-crown" /></span>
+              {/if}
+
               {#if entry.rank < entry.last_rank && entry.last_rank > 0}
                 <span><i class="fa-solid fa-circle-chevron-up up" /></span>
               {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
@@ -75,6 +79,7 @@
   .teams li {
     list-style-type: none;
     line-height: 2rem;
+    position: relative;
   }
 
   .container h2 {
@@ -100,5 +105,14 @@
 
   .leader {
     font-size: 1.4rem;
+  }
+
+  .king {
+    position: absolute;
+    transform: rotate(-20deg);
+    top: -8px;
+    left: -6px;
+    color: gold;
+    font-size: 1.6rem;
   }
 </style>
