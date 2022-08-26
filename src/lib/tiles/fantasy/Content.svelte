@@ -22,18 +22,30 @@
         {#if $query?.data.standings?.results.length > 0}
           {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry, i}
             <li class:leader={entry.rank === 1}>
-              {#if entry.rank === 1}
-                <span class="king"><i class="fa-solid fa-crown" /></span>
-              {/if}
+              <table style="table-layout: fixed; width: 100%; text-align: left;">
+                <tr>
+                  <td style="width: 60px;">
+                    {#if entry.rank === 1}
+                      <span class="king"><i class="fa-solid fa-crown" /></span>
+                    {/if}
 
-              {#if entry.rank < entry.last_rank && entry.last_rank > 0}
-                <span><i class="fa-solid fa-circle-chevron-up up" /></span>
-              {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
-                <span><i class="fa-solid fa-circle-chevron-down down" /></span>
-              {:else}
-                <span><i class="fa-solid fa-circle" /></span>
-              {/if}
-              {entry.rank}. {entry.entry_name} ({entry.player_name}) - {entry.total} poeng (+{entry.event_total})
+                    {#if entry.rank < entry.last_rank && entry.last_rank > 0}
+                      <span><i class="fa-solid fa-circle-chevron-up up" /></span>
+                    {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
+                      <span><i class="fa-solid fa-circle-chevron-down down" /></span>
+                    {:else}
+                      <span><i class="fa-solid fa-circle" /></span>
+                    {/if}
+                    {entry.rank}.
+                  </td>
+                  <td>
+                    {entry.entry_name} ({entry.player_name})
+                  </td>
+                  <td style="width: 200px;">
+                    {entry.total} poeng (+{entry.event_total})
+                  </td>
+                </tr>
+              </table>
             </li>
           {/each}
         {/if}
