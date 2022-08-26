@@ -27,7 +27,7 @@
                 <tr>
                   <td style="width: 60px;">
                     {#if entry.rank === 1}
-                      <span class="king animate__animated animate__rollIn"
+                      <span class="king animate__animated animate__rollIn animate__delay-1s"
                         ><i class="fa-solid fa-crown" /></span
                       >
                     {/if}
