@@ -1,6 +1,7 @@
 <script lang="ts">
   import { useQuery } from "@sveltestack/svelte-query";
   import { getFantasyLeague } from "./api";
+  import "animate.css";
 
   let today = new Date();
 
@@ -26,7 +27,9 @@
                 <tr>
                   <td style="width: 60px;">
                     {#if entry.rank === 1}
-                      <span class="king"><i class="fa-solid fa-crown" /></span>
+                      <span class="king animate__animated animate__rollIn"
+                        ><i class="fa-solid fa-crown" /></span
+                      >
                     {/if}
 
                     {#if entry.rank < entry.last_rank && entry.last_rank > 0}
@@ -122,8 +125,8 @@
   .king {
     position: absolute;
     transform: rotate(-20deg);
-    top: -8px;
-    left: -6px;
+    top: -15px;
+    left: -1px;
     color: gold;
     font-size: 1.6rem;
   }

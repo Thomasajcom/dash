@@ -63,7 +63,7 @@
           </div>
           <!-- {/if} -->
 
-          <h1>
+          <h1 class="animate__animated animate__flipInX">
             {Math.round(
               nextTimeseriesData($query?.data.properties.timeseries).instant.details.air_temperature
             )}°C
