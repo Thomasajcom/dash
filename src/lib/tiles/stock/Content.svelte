@@ -7,6 +7,8 @@
     staleTime: 1000 * 60 * 15,
     refetchInterval: 1000 * 60 * 15
   });
+
+  $: icon = $query.data.trendPercent > 0 ? "🚀" : ($query.data.trendPercent < 0 ? "💸" : "");
 </script>
 
 <div class="container">
@@ -15,12 +17,10 @@
     {#if $query.data}
       <h2 class="price">{ $query.data.price } <span class="currency">KR</span></h2>
       <h3 class:loss={$query.data.trendPercent < 0} class="movement">
-        {#if $query.data.trendPercent > 0}
-        🚀 +
-        {:else if $query.data.trendPercent < 0}
-        💸
-        {/if}
-        { $query.data.trendPercent }%</h3>
+        { icon }
+        { $query.data.trendPercent }%
+        { icon }
+      </h3>
     {/if}
   </div>
 </div>
@@ -60,13 +60,13 @@
   }
 
   h3.movement {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 0;
     font-weight: 100;
     color: #37e17b;
   }
 
   .loss {
-    color: red !important;
+    color: #ff4b33 !important;
   }
 </style>
