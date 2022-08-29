@@ -8,7 +8,8 @@
     refetchInterval: 1000 * 60 * 15
   });
 
-  $: icon = $query.data.trendPercent > 0 ? "🚀" : ($query.data.trendPercent < 0 ? "💸" : "");
+  $: trend = $query.data?.trendPercent ?? 0;
+  $: icon = trend > 0 ? "🚀" : (trend < 0 ? "💸" : "");
 </script>
 
 <div class="container">
