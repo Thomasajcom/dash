@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.18.10",
     "@sveltestack/svelte-query": "^1.6.0",
     "@vitejs/plugin-legacy": "^2.0.1",
+    "animate.css": "^4.1.1",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "broadcast-channel": "^4.13.0",

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { useQuery } from "@sveltestack/svelte-query";
   import { getFantasyLeague } from "./api";
+  import "animate.css";
 
   let today = new Date();
 
@@ -20,16 +21,41 @@
     <div class="teams">
       <ul>
         {#if $query?.data.standings?.results.length > 0}
-          {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry}
-            <li>
-              {#if entry.rank < entry.last_rank && entry.last_rank > 0}
-                <span><i class="fa-solid fa-circle-chevron-up up" /></span>
-              {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
-                <span><i class="fa-solid fa-circle-chevron-down down" /></span>
-              {:else}
-                <span><i class="fa-solid fa-circle" /></span>
-              {/if}
-              {entry.rank}. {entry.entry_name} ({entry.player_name}) - {entry.total} poeng (+{entry.event_total})
+          {#each $query?.data.standings?.results.sort( (a, b) => (a.rank === b.rank ? 0 : a.rank > b.rank ? 1 : -1) ) ?? [] as entry, i}
+            <li class:leader={entry.rank === 1}>
+              <table style="table-layout: fixed; width: 100%; text-align: left;">
+                <tr>
+                  <td style="width: 60px;">
+                    {#if entry.rank === 1}
+                      <span class="king animate__animated animate__rollIn animate__delay-1s"
+                        ><i class="fa-solid fa-crown" /></span
+                      >
+                    {/if}
+
+                    {#if entry.event_total > 100}
+                      <span
+                        class="rocket animate__animated animate__lightSpeedInLeft animate__faster animate__delay-1s"
+                        ><i class="fa-solid fa-rocket" /></span
+                      >
+                    {/if}
+
+                    {#if entry.rank < entry.last_rank && entry.last_rank > 0}
+                      <span><i class="fa-solid fa-circle-chevron-up up" /></span>
+                    {:else if entry.rank > entry.last_rank && entry.last_rank > 0}
+                      <span><i class="fa-solid fa-circle-chevron-down down" /></span>
+                    {:else}
+                      <span><i class="fa-solid fa-circle" /></span>
+                    {/if}
+                    {entry.rank}.
+                  </td>
+                  <td>
+                    {entry.entry_name} ({entry.player_name})
+                  </td>
+                  <td style="width: 200px;">
+                    {entry.total} poeng (+{entry.event_total})
+                  </td>
+                </tr>
+              </table>
             </li>
           {/each}
         {/if}
@@ -75,6 +101,7 @@
   .teams li {
     list-style-type: none;
     line-height: 2rem;
+    position: relative;
   }
 
   .container h2 {
@@ -96,5 +123,24 @@
 
   .up {
     color: #37e17b;
+  }
+
+  .leader {
+    font-size: 1.4rem;
+  }
+
+  .king {
+    position: absolute;
+    transform: rotate(-20deg);
+    top: -15px;
+    left: -1px;
+    color: gold;
+    font-size: 1.6rem;
+  }
+  .rocket {
+    position: absolute;
+    transform: rotate(-20deg);
+    right: 35px;
+    font-size: 1.6rem;
   }
 </style>

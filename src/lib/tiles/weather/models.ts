@@ -28,6 +28,7 @@ export type WeatherDataNext = {
 export type WeatherDataDetails = {
     air_temperature: number,
     wind_speed: number
+    wind_from_direction: number
 }
 
 export type WeatherDataSummary = {
