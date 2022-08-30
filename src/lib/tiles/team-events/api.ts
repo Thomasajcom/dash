@@ -15,7 +15,7 @@ type TeamEvent = {
 
 export async function getTeamEvents(today: Date): Promise<TeamEvent[]> {
   const result = await axios.get<TeamEventDto[]>(
-    "https://presence-itera-fredrikstad.azurewebsites.net/api/teamEvents"
+    "https://services.itera.fredrikstad.dev/api/teamEvents"
   );
   
   return result.data
